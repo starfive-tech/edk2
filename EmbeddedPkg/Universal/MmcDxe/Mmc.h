@@ -519,4 +519,11 @@ PrintCID (
   IN UINT32  *Cid
   );
 
+#define __be32_to_cpu(x) \
+((UINT32)( \
+	(((UINT32)(x) & (UINT32)0x000000ffUL) << 24) | \
+	(((UINT32)(x) & (UINT32)0x0000ff00UL) << 8) | \
+	(((UINT32)(x) & (UINT32)0x00ff0000UL) >> 8) | \
+	(((UINT32)(x) & (UINT32)0xff000000UL) >> 24) ))
+
 #endif
